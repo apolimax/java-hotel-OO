@@ -45,7 +45,7 @@ public class Recepcionista extends Funcionario {
                     break;
             }
         } catch (InputMismatchException e) {
-            System.out.println("Dígito inválido " + e);
+            System.out.println("Opção inválida " + e);
         } catch (ParseException e) {
             System.out.println("Data inválida " + e);
         } finally {

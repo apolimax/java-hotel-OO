@@ -1,18 +1,11 @@
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Hotel {
-    List<Funcionario> funcionarios = new ArrayList<>();
+    static List<Funcionario> funcionarios = new ArrayList<>();
     static List<Hospede> hospedes = new ArrayList<>();
     List<Quarto> quartos = new ArrayList<>();
     
-    public Hotel(List<Funcionario> funcionarios, List<Quarto> quartos) {
-        this.funcionarios = funcionarios;
-        //this.hospedes = hospedes;
-        this.quartos = quartos;
-    }
-
     public void imprimirFuncionarios() {
         for (Funcionario funcionario : funcionarios) {
             System.out.println("Nome: " + funcionario.getNome());
@@ -33,17 +26,5 @@ public class Hotel {
         }
     }
 
-    public void contratarCandidato(Pessoa candidato) {
-        System.out.println("Contratando o candidato " + candidato.getNome());
-        
-        // todos funcionários terão o mesmo salário (por enquanto)
-        Funcionario novoFuncionario = new Funcionario(2000, new Date());
-        funcionarios.add(novoFuncionario);
-    }
 
-    public void demitirFuncionario(Funcionario funcionario) {
-        System.out.println("Demitindo o funcionario " + funcionario.getNome());
-        
-        funcionarios.remove(funcionario);
-    }
 }
