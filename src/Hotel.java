@@ -47,7 +47,7 @@ public class Hotel {
                     RH.contratarCandidato(sc);
                     break;
                 case 2:
-                    //RH.contratarCandidato(sc);
+                    RH.demitirFuncionario(sc);
                     break;
                 default:
                     break;

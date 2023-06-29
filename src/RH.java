@@ -53,10 +53,27 @@ public class RH extends Funcionario {
         System.out.println("Funcionário contratado com sucesso");
     }
     
-    static public void demitirFuncionario(Funcionario funcionario) {
-        System.out.println("Demitindo o funcionario " + funcionario.getNome());
-        // TODO: demitir funcionário a partir do seu nome
-        Hotel.funcionarios.remove(funcionario);
+    static public void demitirFuncionario(Scanner sc) {
+        try {
+            System.out.println("Digite o nome do funcionário");
+            String nomeFuncionario = sc.next();
+            Funcionario f = null;
+            
+            for (Funcionario funcionario : Hotel.funcionarios) {
+                if (funcionario.getNome().toLowerCase().equals(nomeFuncionario.toLowerCase())) {
+                    f = funcionario;
+                }
+            }
+            
+            if (f == null) {
+                System.out.println("Funcionário não encontrado");
+            } else {
+                Hotel.funcionarios.remove(f);
+                System.out.println("Funcionário demitido com sucesso");
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Opção inválida " + e);
+        }
     }
     
 }
