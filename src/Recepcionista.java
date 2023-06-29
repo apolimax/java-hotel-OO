@@ -1,6 +1,7 @@
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -21,15 +22,41 @@ public class Recepcionista extends Funcionario {
             Date checkIn = sdf.parse(sc.next());
             System.out.print("Digite a data de check out (dd/MM/yyyy): ");
             Date checkOut = sdf.parse(sc.next());
-            // TODO: escolha do quarto
             Random rand = new Random();
             int newNumero = rand.nextInt(200);
             int newAndar = rand.nextInt(5);
-            Quarto quarto = new Quarto(newNumero, newAndar);
-            Hospede novoHospede = new Hospede(nomeCliente,idadeCliente, checkIn, checkOut, quarto);
-            Hotel.hospedes.add(novoHospede);
+            System.out.println("Digite o número correspondente ao tipo de quarto");
+            System.out.println("1 para quarto de solteiro");
+            System.out.println("2 para quarto duplo solteiro");
+            System.out.println("3 para quarto de casal");
+            int opt = sc.nextInt();
+            Hospede novoHospede = null;
+
+            switch (opt) {
+                case 1:
+                    QuartoSolteiro QuartoSolteiro = new QuartoSolteiro(newNumero, newAndar);
+                    novoHospede = new Hospede(nomeCliente,idadeCliente, checkIn, checkOut, QuartoSolteiro);
+                    break;
+                case 2:
+                    QuartoDuploSolteiro QuartoDuploSolteiro = new QuartoDuploSolteiro(newNumero, newAndar);
+                    novoHospede = new Hospede(nomeCliente,idadeCliente, checkIn, checkOut, QuartoDuploSolteiro);
+                    break;
+                case 3:
+                    QuartoCasal QuartoCasal = new QuartoCasal(newNumero, newAndar);
+                    novoHospede = new Hospede(nomeCliente,idadeCliente, checkIn, checkOut, QuartoCasal);
+                    break;
+                default:
+                    break;
+            }
+
+            if (novoHospede != null) {
+                Hotel.hospedes.add(novoHospede);
+            }
+
         } catch (ParseException e) {
             System.out.println("Data inválida " + e);
+        } catch (InputMismatchException e) {
+            System.out.println("Opção inválida " + e);
         }
     }
 

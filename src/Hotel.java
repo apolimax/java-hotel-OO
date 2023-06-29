@@ -75,7 +75,34 @@ public class Hotel {
             System.out.println();
             System.out.println("Nome: " + hospede.getNome());
             System.out.println(hospede.getReserva().getQuarto());
-            System.out.println("Diárias: " + hospede.getReserva().getDuracao());
+            System.out.println("-------------");
+        }
+    }
+
+    public void imprimirHospede(Scanner sc) {
+        if (hospedes.isEmpty()) {
+            System.out.println("A lista de hóspedes está vazia");
+            return;
+        }
+        System.out.println("Digite o nome do hóspede");
+        String nommeHospede = sc.next();
+        Hospede h = null;
+
+        for (Hospede hospede : hospedes) {
+           if (hospede.getNome().toLowerCase().equals(nommeHospede.toLowerCase())) {
+                h = hospede;
+           }
+        }
+
+        if (h == null) {
+            System.out.println("Hóspede não encontrado");
+        } else {
+            System.out.println();
+            System.out.println("Nome: " + h.getNome());
+            System.out.println(h.getReserva().getQuarto());
+            System.out.println("Data de check in: " + h.getReserva().getCheckIn());
+            System.out.println("Data de check out: " + h.getReserva().getCheckOut());
+            System.out.println("Diárias: " + h.getReserva().getDuracao());
             System.out.println("-------------");
         }
     }

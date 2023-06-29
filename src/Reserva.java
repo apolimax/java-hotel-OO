@@ -5,12 +5,21 @@ public class Reserva {
     private Quarto quarto;
     private Date checkIn;
     private Date checkOut;
-    
+
     public Reserva(Quarto quarto, Date checkIn, Date checkOut) {
         this.quarto = quarto;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
     }
+    
+    public Date getCheckIn() {
+        return checkIn;
+    }
+    
+    public Date getCheckOut() {
+        return checkOut;
+    }
+
 
     public String getQuarto() {
         return quarto.toString();

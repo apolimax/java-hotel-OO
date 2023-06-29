@@ -1,23 +1,7 @@
-public class Quarto {
-    protected int numero;
-    protected int andar;
-    
-    public int getNumero() {
-        return numero;
-    }
-
-    public int getAndar() {
-        return andar;
-    }
-
-    public Quarto(int numero, int andar) {
-        this.numero = numero;
-        this.andar = andar;
-    }
-
+public interface Quarto {
+    public int getNumero();
+    public int getAndar();
+    public String getTipoDeQuarto();
     @Override
-    public String toString() {
-        return "Número do quarto: " + this.numero +
-                "\nAndar: " + this.andar;
-    }
+    public String toString();
 }

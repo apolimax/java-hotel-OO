@@ -33,7 +33,7 @@ public class App {
                         hotelIMD.imprimirHospedes();
                         break;
                     case 4:
-                        
+                        hotelIMD.imprimirHospede(sc);
                         break;
                     case 5:
                         hotelIMD.demandarServicosRH(sc);
