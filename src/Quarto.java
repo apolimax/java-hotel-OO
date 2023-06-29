@@ -17,7 +17,7 @@ public class Quarto {
 
     @Override
     public String toString() {
-        return "Número: " + this.numero +
-                "Andar: " + this.andar;
+        return "Número do quarto: " + this.numero +
+                "\nAndar: " + this.andar;
     }
 }

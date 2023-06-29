@@ -38,6 +38,9 @@ public class App {
                     case 5:
                         hotelIMD.demandarServicosRH(sc);
                         break;
+                    case 6:
+                        hotelIMD.demandarServicosRecepcao(sc);
+                        break;
                     default:
                         break;
                 }

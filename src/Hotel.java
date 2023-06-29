@@ -72,6 +72,7 @@ public class Hotel {
             return;
         }
         for (Hospede hospede : hospedes) {
+            System.out.println();
             System.out.println("Nome: " + hospede.getNome());
             System.out.println(hospede.getReserva().getQuarto());
             System.out.println("Diárias: " + hospede.getReserva().getDuracao());
@@ -83,6 +84,7 @@ public class Hotel {
         try {
             System.out.println("Digite 1 para contratar um novo funcionário");
             System.out.println("Digite 2 demitir um funcionário");
+            System.out.println("Digite 3 para sair");
             int opt = sc.nextInt();
 
             switch (opt) {
@@ -92,6 +94,32 @@ public class Hotel {
                 case 2:
                     RH.demitirFuncionario(sc);
                     break;
+                case 3:
+                    return;
+                default:
+                    break;
+            }
+        } catch (InputMismatchException e) {
+           System.out.println("Opção inválida " + e);
+        }
+    }
+
+    public void demandarServicosRecepcao(Scanner sc) {
+        try {
+            System.out.println("Digite 1 para fazer uma nova reserva");
+            System.out.println("Digite 2 para cancelar uma reserva");
+            System.out.println("Digite 3 para sair");
+            int opt = sc.nextInt();
+
+            switch (opt) {
+                case 1:
+                    Recepcionista.fazerReserva(sc);
+                    break;
+                case 2:
+                    Recepcionista.cancelarReserva(sc);
+                    break;
+                case 3:
+                    return;
                 default:
                     break;
             }
