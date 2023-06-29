@@ -27,7 +27,7 @@ public class App {
                         hotelIMD.imprimirFuncionarios();
                         break;
                     case 2:
-                        
+                        hotelIMD.imprimirFuncionario(sc);
                         break;
                     case 3:
                         hotelIMD.imprimirHospedes();

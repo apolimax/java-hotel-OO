@@ -7,6 +7,23 @@ public class Hotel {
     static List<Funcionario> funcionarios = new ArrayList<>();
     static List<Hospede> hospedes = new ArrayList<>();
     List<Quarto> quartos = new ArrayList<>();
+
+    public String getDepartamento(Funcionario funcionario) {
+        boolean isLimpeza =  funcionario instanceof Camareira;
+        boolean isRH =  funcionario instanceof RH;
+        boolean isRestaurante =  funcionario instanceof Cozinheiro;
+        //boolean isRecepcao =  funcionario instanceof Recepcionista;
+
+        if (isLimpeza) {
+            return "Limpeza";
+        } else if (isRH) {
+            return "Recursos Humanos";
+        } else if (isRestaurante) {
+            return "Restaurante";
+        } else {
+            return "Recepção";
+        }
+    }
     
     public void imprimirFuncionarios() {
         if (funcionarios.isEmpty()) {
@@ -14,11 +31,37 @@ public class Hotel {
             return;
         }
         for (Funcionario funcionario : funcionarios) {
+            System.out.println();
             System.out.println("Nome: " + funcionario.getNome());
-            System.out.println("Profissão: " + funcionario.getClass());
-            System.out.println("Salário: " + funcionario.getSalario());
-            System.out.println("Data Admissão: " + funcionario.getDataAdmissao());
-            System.out.println("Data Saída: " + funcionario.getDataSaida() == null ? "Contrato vigente" : funcionario.getDataSaida());
+            System.out.println("Departamento: " + getDepartamento(funcionario));
+            System.out.println("-------------");
+        }
+    }
+
+    public void imprimirFuncionario(Scanner sc) {
+        if (funcionarios.isEmpty()) {
+            System.out.println("A lista de funcionários está vazia");
+            return;
+        }
+
+        System.out.println("Digite o nome do funcionário");
+        String nomeFuncionario = sc.next();
+        Funcionario f = null;
+
+        for (Funcionario funcionario : funcionarios) {
+           if (funcionario.getNome().toLowerCase().equals(nomeFuncionario.toLowerCase())) {
+                f = funcionario;
+           }
+        }
+
+        if (f == null) {
+            System.out.println("Funcionário não encontrado");
+        } else {
+            System.out.println();
+            System.out.println("Nome: " + f.getNome());
+            System.out.println("Departamento: " + getDepartamento(f));
+            System.out.println("Salário: " + f.getSalario());
+            System.out.println("Data Admissão: " + f.getDataAdmissao());
             System.out.println("-------------");
         }
     }

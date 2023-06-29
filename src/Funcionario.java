@@ -3,7 +3,6 @@ import java.util.Date;
 public class Funcionario extends Pessoa {
     private float salario;
     private Date dataAdmissao;
-    private Date dataSaida = null;
 
     public Funcionario(String nome, byte idade, float salario, Date dataAdmissao) {
         super(nome, idade);
@@ -15,9 +14,6 @@ public class Funcionario extends Pessoa {
         return dataAdmissao;
     }
     
-    public Date getDataSaida() {
-        return dataSaida;
-    }
     public float getSalario() {
         return salario;
     }
