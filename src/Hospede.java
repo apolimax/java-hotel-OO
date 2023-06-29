@@ -13,17 +13,19 @@ public class Hospede extends Pessoa {
         return reserva;
     }
 
-    public Hospede(Date checkIn, Date checkOut, Quarto quarto) throws IllegalArgumentException {
+    public Hospede(String nome, byte idade, Date checkIn, Date checkOut, Quarto quarto) throws IllegalArgumentException {
         //this.hotelHospedado = hotelHospedado;
         /* this.checkin = checkin;
         this.checkout = checkout;
         this.quarto = quarto; */
+        super(nome, idade);
         
         if (!checkOut.after(checkIn)){
             throw new IllegalArgumentException("Data de checkout deve ser posterior a data de check in");
         } else {
             this.reserva = new Reserva(quarto, checkIn, checkOut);
         }
+
     }
 
     public void fazerReserva() {}

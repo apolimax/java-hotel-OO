@@ -1,8 +1,8 @@
 import java.util.Date;
 
 public class Camareira extends Funcionario {
-    public Camareira(float salario, Date dataAdmissao) {
-        super(salario, dataAdmissao);
+    public Camareira(String nome, byte idade, float salario, Date dataAdmissao) {
+        super(nome, idade, salario, dataAdmissao);
         //TODO Auto-generated constructor stub
     }
 

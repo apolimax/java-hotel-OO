@@ -6,8 +6,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Recepcionista extends Funcionario {
-    public Recepcionista(float salario, Date dataAdmissao) {
-        super(salario, dataAdmissao);
+    public Recepcionista(String nome, byte idade, float salario, Date dataAdmissao) {
+        super(nome, idade, salario, dataAdmissao);
         //TODO Auto-generated constructor stub
     }
 
@@ -28,11 +28,13 @@ public class Recepcionista extends Funcionario {
                 case 1:
                     System.out.print("Digite o nome do potencial hóspede: ");
                     String nomeCliente = sc.nextLine();
+                    System.out.print("Digite a idade do potencial hóspede: ");
+                    byte idadeCliente = sc.nextByte();
                     System.out.print("Digite a data de check in (dd/MM/yyyy): ");
                     Date checkIn = sdf.parse(sc.next());
                     System.out.print("Digite a data de check out (dd/MM/yyyy): ");
                     Date checkOut = sdf.parse(sc.next());
-                    fazerReserva(nomeCliente, checkIn, checkOut);
+                    fazerReserva(nomeCliente, idadeCliente, checkIn, checkOut);
                     break;
                 case 2:
                     System.out.print("Digite o nome do hóspede: ");
@@ -55,13 +57,13 @@ public class Recepcionista extends Funcionario {
 
     }
     
-    public void fazerReserva(String nomeCliente, Date checkIn, Date checkOut) {
+    public void fazerReserva(String nomeCliente, byte idadeCliente, Date checkIn, Date checkOut) {
         System.out.println("Fazendo a reserva para o cliente " + nomeCliente);
         Random rand = new Random();
         int newNumero = rand.nextInt(200);
         int newAndar = rand.nextInt(5);
         Quarto quarto = new Quarto(newNumero, newAndar);
-        Hospede novoHospede = new Hospede(checkIn, checkOut, quarto);
+        Hospede novoHospede = new Hospede(nomeCliente,idadeCliente ,checkIn, checkOut, quarto);
         Hotel.hospedes.add(novoHospede);
     }
 

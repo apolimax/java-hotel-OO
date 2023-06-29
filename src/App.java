@@ -9,6 +9,7 @@ public class App {
         int opt = 1;
         do {
             try {
+                System.out.println();
                 System.out.println("--- Bem-vindo ao sistema de reservas do Hotel IMD ---");
                 System.out.println("Digite 1 para listar funcionários");
                 System.out.println("Digite 2 para listar dados de um funcionário pelo seu nome");
@@ -35,7 +36,7 @@ public class App {
                         
                         break;
                     case 5:
-                        
+                        hotelIMD.demandarServicosRH(sc);
                         break;
                     default:
                         break;
@@ -43,6 +44,7 @@ public class App {
                 
             } catch (InputMismatchException e) {
                 System.out.println("Opção inválida " + e);
+                opt = 9;
             }
         } while (opt != 9);
 

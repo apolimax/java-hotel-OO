@@ -5,7 +5,8 @@ public class Funcionario extends Pessoa {
     private Date dataAdmissao;
     private Date dataSaida = null;
 
-    public Funcionario(float salario, Date dataAdmissao) {
+    public Funcionario(String nome, byte idade, float salario, Date dataAdmissao) {
+        super(nome, idade);
         this.salario = salario;
         this.dataAdmissao = dataAdmissao;
     }
