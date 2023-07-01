@@ -155,4 +155,34 @@ public class Hotel {
         }
     }
 
+    public void demandarServicoRestaurante(Scanner sc) {
+    		
+    	try {
+    		System.out.println("Digite o ítem escolhido para ser enviado a cozinha:");
+    		System.out.println("Digite 1 Feijoada");
+            System.out.println("Digite 2 Macarronada");
+            System.out.println("Digite 3 Salada");
+        	
+        	int opt = sc.nextInt();
+
+            switch (opt) {
+                case 1:
+                    Cozinheiro.cozinhar("Feijoada");
+                    break;
+                case 2:
+                	Cozinheiro.cozinhar("Macarronada");
+                    break;
+                case 3:
+                	Cozinheiro.cozinhar("Salada");
+                    return;
+                default:
+                    break;
+            }
+            
+            
+        }catch (InputMismatchException e) {
+            System.out.println("Opção inválida " + e);
+        }	
+    }
+
 }
