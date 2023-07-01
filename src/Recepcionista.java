@@ -51,12 +51,15 @@ public class Recepcionista extends Funcionario {
 
             if (novoHospede != null) {
                 Hotel.hospedes.add(novoHospede);
+                System.out.printf("A reserva para %s foi concluída com sucesso!", nomeCliente);
             }
 
         } catch (ParseException e) {
             System.out.println("Data inválida " + e);
         } catch (InputMismatchException e) {
             System.out.println("Opção inválida " + e);
+        } catch(IllegalArgumentException e) {
+            System.out.println("Data de checkout deve ser posterior a data de check in!");
         }
     }
 

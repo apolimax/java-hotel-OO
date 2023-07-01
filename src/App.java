@@ -48,7 +48,6 @@ public class App {
                     	hotelIMD.demandarServicoRestaurante(sc);
                         break;
                     default:
-                        System.out.println("Opção inválida, tente novamente!");    
                         break;
                 }
             } catch (InputMismatchException e) {

@@ -50,10 +50,15 @@ public class RH extends Funcionario {
             System.out.println("Opção inválida " + e);
         } 
 
-        System.out.println("Funcionário contratado com sucesso");
+        System.out.println("Funcionário contratado com sucesso!");
     }
     
     static public void demitirFuncionario(Scanner sc) {
+        if (Hotel.funcionarios.isEmpty()) {
+            System.out.println("A lista de funcionários está vazia");
+            return;
+        }
+
         try {
             System.out.print("Digite o nome do funcionário: ");
             String nomeFuncionario = sc.next();

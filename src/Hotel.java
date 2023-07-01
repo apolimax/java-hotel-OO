@@ -26,8 +26,9 @@ public class Hotel {
     }
     
     public void imprimirFuncionarios() {
+        System.out.println("--- Relação de funcionários ---");
         if (funcionarios.isEmpty()) {
-            System.out.println("A lista de funcionários está vazia");
+            System.out.println("A lista de funcionários está vazia!");
             return;
         }
         for (Funcionario funcionario : funcionarios) {
@@ -40,35 +41,38 @@ public class Hotel {
 
     public void imprimirFuncionario(Scanner sc) {
         if (funcionarios.isEmpty()) {
-            System.out.println("A lista de funcionários está vazia");
+            System.out.println("--- Detalhes de um funcionário ---");
+            System.out.println("A lista de funcionários está vazia!");
             return;
         }
-
+        
         System.out.print("Digite o nome do funcionário: ");
         String nomeFuncionario = sc.next();
         Funcionario f = null;
-
+        
         for (Funcionario funcionario : funcionarios) {
-           if (funcionario.getNome().toLowerCase().equals(nomeFuncionario.toLowerCase())) {
+            if (funcionario.getNome().toLowerCase().equals(nomeFuncionario.toLowerCase())) {
                 f = funcionario;
-           }
+            }
         }
-
+        
+        System.out.println("--- Detalhes de um funcionário ---");
         if (f == null) {
             System.out.println("Funcionário não encontrado");
         } else {
             System.out.println();
             System.out.println("Nome: " + f.getNome());
             System.out.println("Departamento: " + getDepartamento(f));
-            System.out.println("Salário: " + f.getSalario());
+            System.out.println("Salário: R$ " + f.getSalario());
             System.out.println("Data Admissão: " + f.getDataAdmissao());
             System.out.println("-------------");
         }
     }
 
     public void imprimirHospedes() {
+        System.out.println("--- Relação de hóspedes ---");
         if (hospedes.isEmpty()) {
-            System.out.println("A lista de hóspedes está vazia");
+            System.out.println("A lista de hóspedes está vazia!");
             return;
         }
         for (Hospede hospede : hospedes) {
@@ -81,7 +85,8 @@ public class Hotel {
 
     public void imprimirHospede(Scanner sc) {
         if (hospedes.isEmpty()) {
-            System.out.println("A lista de hóspedes está vazia");
+            System.out.println("--- Detalhes de um hóspede ---");
+            System.out.println("A lista de hóspedes está vazia!");
             return;
         }
         System.out.print("Digite o nome do hóspede: ");
@@ -93,7 +98,7 @@ public class Hotel {
                 h = hospede;
            }
         }
-
+        System.out.println("--- Detalhes de um hóspede ---");
         if (h == null) {
             System.out.println("Hóspede não encontrado");
         } else {
@@ -108,30 +113,39 @@ public class Hotel {
     }
 
     public void demandarServicosRH(Scanner sc) {
-        try {
-            System.out.println("Digite 1 para contratar um novo funcionário");
-            System.out.println("Digite 2 demitir um funcionário");
-            System.out.println("Digite 3 para sair");
-            int opt = sc.nextInt();
-
-            switch (opt) {
-                case 1:
-                    RH.contratarCandidato(sc);
-                    break;
-                case 2:
-                    RH.demitirFuncionario(sc);
-                    break;
-                case 3:
-                    return;
-                default:
-                    break;
+        int opt = 1;
+        do {
+            try {
+                System.out.println("--- Recursos Humanos ---");
+                System.out.println("Digite 1 para contratar um novo funcionário");
+                System.out.println("Digite 2 demitir um funcionário");
+                System.out.println("Digite 3 para sair");
+                opt = sc.nextInt();
+    
+                switch (opt) {
+                    case 1:
+                        RH.contratarCandidato(sc);
+                        break;
+                    case 2:
+                        RH.demitirFuncionario(sc);
+                        break;
+                    case 3:
+                        return;
+                    default:
+                        System.out.println("Opção inválida, tente novamente!");
+                        break;
+                }
+            } catch (InputMismatchException e) {
+               System.out.println("Opção inválida " + e);
+               return;
             }
-        } catch (InputMismatchException e) {
-           System.out.println("Opção inválida " + e);
-        }
+            
+        } while (opt != 3);
+
     }
 
     public void demandarServicosRecepcao(Scanner sc) {
+        System.out.println("--- Recepção ---");
         try {
             System.out.println("Digite 1 para fazer uma nova reserva");
             System.out.println("Digite 2 para cancelar uma reserva");
@@ -156,9 +170,9 @@ public class Hotel {
     }
 
     public void demandarServicoRestaurante(Scanner sc) {
-    		
+        System.out.println("--- Restaurante ---");
     	try {
-    		System.out.println("-- CARDÁPIO --");
+    		System.out.println("--- CARDÁPIO ---");
     		System.out.println("Digite 1 para Feijoada");
             System.out.println("Digite 2 para Macarronada");
             System.out.println("Digite 3 para Salada");
