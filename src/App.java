@@ -41,6 +41,11 @@ public class App {
                     case 6:
                         hotelIMD.demandarServicosRecepcao(sc);
                         break;
+                    case 7:
+                    	hotelIMD.demandarLimpeza(sc);
+                    	break;
+                    case 8:
+                    	hotelIMD.demandarServicoRestaurante(sc);
                     default:
                         break;
                 }
