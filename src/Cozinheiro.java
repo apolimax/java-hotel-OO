@@ -6,7 +6,7 @@ public class Cozinheiro extends Funcionario {
         //TODO Auto-generated constructor stub
     }
 
-    public void cozinhar(String prato) {
+    public static void cozinhar(String prato) {
         System.out.println("Cozinhando o prato " + prato);
     }
 }

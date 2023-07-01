@@ -42,23 +42,20 @@ public class App {
                         hotelIMD.demandarServicosRecepcao(sc);
                         break;
                     case 7:
-                    	hotelIMD.demandarLimpeza(sc);
+                    	//hotelIMD.demandarServicosLimpeza(sc);
                     	break;
                     case 8:
                     	hotelIMD.demandarServicoRestaurante(sc);
+                        break;
                     default:
+                        System.out.println("Opção inválida, tente novamente!");    
                         break;
                 }
-                
             } catch (InputMismatchException e) {
                 System.out.println("Opção inválida " + e);
-                opt = 9;
+                break;
             }
         } while (opt != 9);
-
-
-
-
         sc.close();
     }
 }

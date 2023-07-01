@@ -44,7 +44,7 @@ public class Hotel {
             return;
         }
 
-        System.out.println("Digite o nome do funcionário");
+        System.out.print("Digite o nome do funcionário: ");
         String nomeFuncionario = sc.next();
         Funcionario f = null;
 
@@ -84,7 +84,7 @@ public class Hotel {
             System.out.println("A lista de hóspedes está vazia");
             return;
         }
-        System.out.println("Digite o nome do hóspede");
+        System.out.print("Digite o nome do hóspede: ");
         String nommeHospede = sc.next();
         Hospede h = null;
 
@@ -158,10 +158,11 @@ public class Hotel {
     public void demandarServicoRestaurante(Scanner sc) {
     		
     	try {
-    		System.out.println("Digite o ítem escolhido para ser enviado a cozinha:");
-    		System.out.println("Digite 1 Feijoada");
-            System.out.println("Digite 2 Macarronada");
-            System.out.println("Digite 3 Salada");
+    		System.out.println("-- CARDÁPIO --");
+    		System.out.println("Digite 1 para Feijoada");
+            System.out.println("Digite 2 para Macarronada");
+            System.out.println("Digite 3 para Salada");
+            System.out.println("Digite 4 para sair");
         	
         	int opt = sc.nextInt();
 
@@ -174,13 +175,14 @@ public class Hotel {
                     break;
                 case 3:
                 	Cozinheiro.cozinhar("Salada");
+                    break;
+                case 4:
                     return;
                 default:
+                    System.out.println("Opção inválida");
                     break;
             }
-            
-            
-        }catch (InputMismatchException e) {
+        } catch (InputMismatchException e) {
             System.out.println("Opção inválida " + e);
         }	
     }

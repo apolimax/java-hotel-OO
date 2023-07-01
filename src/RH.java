@@ -10,13 +10,13 @@ public class RH extends Funcionario {
 
     static public void contratarCandidato(Scanner sc) {
         try {
-            System.out.println("Digite o nome do novo funcionário");
+            System.out.print("Digite o nome do novo funcionário: ");
             String nomeFuncionario = sc.next();
 
-            System.out.println("Digite o salário do novo funcionário");
+            System.out.print("Digite o salário do novo funcionário: ");
             float salarioFuncionario = sc.nextFloat();
 
-            System.out.println("Digite a idade do novo funcionário");
+            System.out.print("Digite a idade do novo funcionário: ");
             byte idadeFuncionario = sc.nextByte();
             
             System.out.println("Digite o número correspondente ao departamento do novo funcionário");
@@ -55,7 +55,7 @@ public class RH extends Funcionario {
     
     static public void demitirFuncionario(Scanner sc) {
         try {
-            System.out.println("Digite o nome do funcionário");
+            System.out.print("Digite o nome do funcionário: ");
             String nomeFuncionario = sc.next();
             Funcionario f = null;
             
