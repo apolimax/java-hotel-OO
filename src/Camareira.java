@@ -29,8 +29,7 @@ public class Camareira extends Funcionario {
                 System.out.print("Digite a data de agendamento (dd/MM/yyyy): ");
                 Date data = sdf.parse(sc.next());
 
-                System.out.println(  "Limpeza do quarto " + numeroQuarto
-                                   + " agendada para o dia " + data + ".");
+                System.out.println("Limpeza do quarto " + numeroQuarto + " agendada para o dia " + data + ".");
             } else {
                 System.out.println("Quarto inexistente.");
             }
@@ -55,7 +54,7 @@ public class Camareira extends Funcionario {
         }
 
         if(quartoExiste) {
-            System.out.println(  "Agendamento da limpeza do quarto " + numeroQuarto + " cancelado.");
+            System.out.println("Agendamento da limpeza do quarto " + numeroQuarto + " cancelado.");
         } else {
             System.out.println("Quarto inexistente.");
         }

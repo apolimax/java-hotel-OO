@@ -59,12 +59,11 @@ public class Hotel {
         if (f == null) {
             System.out.println("Funcionário não encontrado");
         } else {
-            System.out.println();
-            System.out.println("Nome: " + f.getNome());
-            System.out.println("Departamento: " + getDepartamento(f));
-            System.out.println("Salário: R$ " + f.getSalario());
-            System.out.println("Data Admissão: " + f.getDataAdmissao());
-            System.out.println("-------------");
+            System.out.println(  "\nNome: " + f.getNome()
+                               + "\nDepartamento: " + getDepartamento(f)
+                               + "\nSalário: R$ " + f.getSalario()
+                               + "\nData Admissão: " + f.getDataAdmissao()
+                               + "\n-------------");
         }
     }
 
