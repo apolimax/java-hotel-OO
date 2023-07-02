@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Hotel {
     static List<Funcionario> funcionarios = new ArrayList<>();
     static List<Hospede> hospedes = new ArrayList<>();
-    List<Quarto> quartos = new ArrayList<>();
+    static List<Quarto> quartos = new ArrayList<>();
 
     public String getDepartamento(Funcionario funcionario) {
         boolean isLimpeza =  funcionario instanceof Camareira;
@@ -32,17 +32,16 @@ public class Hotel {
             return;
         }
         for (Funcionario funcionario : funcionarios) {
-            System.out.println();
-            System.out.println("Nome: " + funcionario.getNome());
-            System.out.println("Departamento: " + getDepartamento(funcionario));
-            System.out.println("-------------");
+            System.out.println(  "\nNome: " + funcionario.getNome()
+                               + "\nDepartamento: " + getDepartamento(funcionario)
+                               + "\n-------------");
         }
     }
 
     public void imprimirFuncionario(Scanner sc) {
         if (funcionarios.isEmpty()) {
-            System.out.println("--- Detalhes de um funcionário ---");
-            System.out.println("A lista de funcionários está vazia!");
+            System.out.println(  "--- Detalhes de um funcionário ---"
+                               + "\nA lista de funcionários está vazia!");
             return;
         }
         
@@ -60,12 +59,11 @@ public class Hotel {
         if (f == null) {
             System.out.println("Funcionário não encontrado");
         } else {
-            System.out.println();
-            System.out.println("Nome: " + f.getNome());
-            System.out.println("Departamento: " + getDepartamento(f));
-            System.out.println("Salário: R$ " + f.getSalario());
-            System.out.println("Data Admissão: " + f.getDataAdmissao());
-            System.out.println("-------------");
+            System.out.println(  "\nNome: " + f.getNome()
+                               + "\nDepartamento: " + getDepartamento(f)
+                               + "\nSalário: R$ " + f.getSalario()
+                               + "\nData Admissão: " + f.getDataAdmissao()
+                               + "\n-------------");
         }
     }
 
@@ -76,17 +74,16 @@ public class Hotel {
             return;
         }
         for (Hospede hospede : hospedes) {
-            System.out.println();
-            System.out.println("Nome: " + hospede.getNome());
-            System.out.println(hospede.getReserva().getQuarto());
-            System.out.println("-------------");
+            System.out.println(  "\n\nNome: " + hospede.getNome()
+                               + "\n" + hospede.getReserva().getQuarto()
+                               + "\n-------------");
         }
     }
 
     public void imprimirHospede(Scanner sc) {
         if (hospedes.isEmpty()) {
-            System.out.println("--- Detalhes de um hóspede ---");
-            System.out.println("A lista de hóspedes está vazia!");
+            System.out.println(  "--- Detalhes de um hóspede ---" 
+                               + "\nA lista de hóspedes está vazia!");
             return;
         }
         System.out.print("Digite o nome do hóspede: ");
@@ -102,13 +99,12 @@ public class Hotel {
         if (h == null) {
             System.out.println("Hóspede não encontrado");
         } else {
-            System.out.println();
-            System.out.println("Nome: " + h.getNome());
-            System.out.println(h.getReserva().getQuarto());
-            System.out.println("Data de check in: " + h.getReserva().getCheckIn());
-            System.out.println("Data de check out: " + h.getReserva().getCheckOut());
-            System.out.println("Diárias: " + h.getReserva().getDuracao());
-            System.out.println("-------------");
+            System.out.println(  "\nNome: " + h.getNome()
+                               + "\n" + h.getReserva().getQuarto()
+                               + "\nData de check in: " + h.getReserva().getCheckIn()
+                               + "\nData de check out: " + h.getReserva().getCheckOut()
+                               + "\nDiárias: " + h.getReserva().getDuracao()
+                               + "\n-------------");
         }
     }
 
@@ -116,10 +112,11 @@ public class Hotel {
         int opt = 1;
         do {
             try {
-                System.out.println("--- Recursos Humanos ---");
-                System.out.println("Digite 1 para contratar um novo funcionário");
-                System.out.println("Digite 2 demitir um funcionário");
-                System.out.println("Digite 3 para sair");
+                System.out.println(  "--- Recursos Humanos ---"
+                                   + "\nDigite 1 para contratar um novo funcionário"
+                                   + "\nDigite 2 demitir um funcionário"
+                                   + "\nDigite 3 para sair");
+
                 opt = sc.nextInt();
     
                 switch (opt) {
@@ -136,7 +133,7 @@ public class Hotel {
                         break;
                 }
             } catch (InputMismatchException e) {
-               System.out.println("Opção inválida " + e);
+               System.out.println("\nOpção inválida! Error: " + e);
                return;
             }
             
@@ -144,12 +141,13 @@ public class Hotel {
 
     }
 
-    public void demandarServicosRecepcao(Scanner sc) {
-        System.out.println("--- Recepção ---");
+    public void demandarServicosRecepcao(Scanner sc) {  
+        System.out.println("--- Recepção ---");      
         try {
-            System.out.println("Digite 1 para fazer uma nova reserva");
-            System.out.println("Digite 2 para cancelar uma reserva");
-            System.out.println("Digite 3 para sair");
+            System.out.println(  "\nDigite 1 para fazer uma nova reserva"
+                               + "\nDigite 2 para cancelar uma reserva"
+                               + "\nDigite 3 para sair");
+
             int opt = sc.nextInt();
 
             switch (opt) {
@@ -165,18 +163,46 @@ public class Hotel {
                     break;
             }
         } catch (InputMismatchException e) {
-           System.out.println("Opção inválida " + e);
+           System.out.println("\nOpção inválida! Error: " + e);
+        }
+    }
+
+    public void demandarServicosLimpeza(Scanner sc) {  
+        System.out.println("--- Limpeza ---");      
+        try {
+            System.out.println(  "\nDigite 1 para solicitar limpeza"
+                               + "\nDigite 2 para cancelar uma solicitação de limpeza"
+                               + "\nDigite 3 para sair");
+
+            int opt = sc.nextInt();
+
+            System.out.println();
+
+            switch (opt) {
+                case 1:
+                    Camareira.solicitarLimpeza(sc);
+                    break;
+                case 2:
+                    Camareira.cancelarLimpeza(sc);
+                    break;
+                case 3:
+                    return;
+                default:
+                    break;
+            }
+        } catch (InputMismatchException e) {
+           System.out.println("\nOpção inválida! Error: " + e);
         }
     }
 
     public void demandarServicoRestaurante(Scanner sc) {
         System.out.println("--- Restaurante ---");
     	try {
-    		System.out.println("--- CARDÁPIO ---");
-    		System.out.println("Digite 1 para Feijoada");
-            System.out.println("Digite 2 para Macarronada");
-            System.out.println("Digite 3 para Salada");
-            System.out.println("Digite 4 para sair");
+    		System.out.println(  "--- CARDÁPIO ---"
+    		                   + "\nDigite 1 para Feijoada"
+                               + "\nDigite 2 para Macarronada"
+                               + "\nDigite 3 para Salada"
+                               + "\nDigite 4 para sair");
         	
         	int opt = sc.nextInt();
 
@@ -197,7 +223,7 @@ public class Hotel {
                     break;
             }
         } catch (InputMismatchException e) {
-            System.out.println("Opção inválida " + e);
+            System.out.println("\nOpção inválida! Error: " + e);
         }	
     }
 

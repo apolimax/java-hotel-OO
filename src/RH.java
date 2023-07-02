@@ -19,11 +19,11 @@ public class RH extends Funcionario {
             System.out.print("Digite a idade do novo funcionário: ");
             byte idadeFuncionario = sc.nextByte();
             
-            System.out.println("Digite o número correspondente ao departamento do novo funcionário");
-            System.out.println("1 para Recursos Humanos");
-            System.out.println("2 para Recepção");
-            System.out.println("3 para Restaurante");
-            System.out.println("4 para Limpeza");
+            System.out.println(  "Digite o número correspondente ao departamento do novo funcionário"
+                               + "\n1 para Recursos Humanos"
+                               + "\n2 para Recepção"
+                               + "\n3 para Restaurante"
+                               + "\n4 para Limpeza");
             int departamento = sc.nextInt();
             
                 switch (departamento) {
@@ -47,7 +47,7 @@ public class RH extends Funcionario {
                         break;
                 }
         } catch (InputMismatchException e) {
-            System.out.println("Opção inválida " + e);
+            System.out.println("\nOpção inválida! Error: " + e);
         } 
 
         System.out.println("Funcionário contratado com sucesso!");
@@ -77,7 +77,7 @@ public class RH extends Funcionario {
                 System.out.println("Funcionário demitido com sucesso");
             }
         } catch (InputMismatchException e) {
-            System.out.println("Opção inválida " + e);
+            System.out.println("\nOpção inválida! Error: " + e);
         }
     }
     

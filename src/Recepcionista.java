@@ -14,22 +14,29 @@ public class Recepcionista extends Funcionario {
     static public void fazerReserva(Scanner sc) {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
             System.out.print("Digite o nome do potencial hóspede: ");
             String nomeCliente = sc.next();
-            System.out.print("Digite a idade do potencial hóspede: ");
+
+            System.out.print("Digite a idade do potencial hóspede: ");            
             byte idadeCliente = sc.nextByte();
+
             System.out.print("Digite a data de check in (dd/MM/yyyy): ");
             Date checkIn = sdf.parse(sc.next());
+
             System.out.print("Digite a data de check out (dd/MM/yyyy): ");
             Date checkOut = sdf.parse(sc.next());
+
             Random rand = new Random();
             int newNumero = rand.nextInt(200);
             int newAndar = rand.nextInt(5);
-            System.out.println("Digite o número correspondente ao tipo de quarto");
-            System.out.println("1 para quarto de solteiro");
-            System.out.println("2 para quarto duplo solteiro");
-            System.out.println("3 para quarto de casal");
+
+            System.out.println(  "Digite o número correspondente ao tipo de quarto"
+                               + "\n1 para quarto de solteiro"
+                               + "\n2 para quarto duplo solteiro"
+                               + "\n3 para quarto de casal");
             int opt = sc.nextInt();
+
             Hospede novoHospede = null;
 
             switch (opt) {
@@ -54,11 +61,9 @@ public class Recepcionista extends Funcionario {
                 System.out.printf("A reserva para %s foi concluída com sucesso!", nomeCliente);
             }
 
-        } catch (ParseException e) {
-            System.out.println("Data inválida " + e);
-        } catch (InputMismatchException e) {
-            System.out.println("Opção inválida " + e);
-        } catch(IllegalArgumentException e) {
+        } catch (ParseException | InputMismatchException e) {
+            System.out.println("\nOpção inválida! Error: " + e);
+        } catch (IllegalArgumentException e) {
             System.out.println("Data de checkout deve ser posterior a data de check in!");
         }
     }
