@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Hotel {
     static List<Funcionario> funcionarios = new ArrayList<>();
     static List<Hospede> hospedes = new ArrayList<>();
-    List<Quarto> quartos = new ArrayList<>();
+    static List<Quarto> quartos = new ArrayList<>();
 
     public String getDepartamento(Funcionario funcionario) {
         boolean isLimpeza =  funcionario instanceof Camareira;

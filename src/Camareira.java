@@ -19,19 +19,18 @@ public class Camareira extends Funcionario {
             System.out.println();
 
             boolean quartoExiste = false; 
-            for (Hospede h : Hotel.hospedes) {
-                if (h.getReserva().getQuarto().getNumero() == numeroQuarto) quartoExiste = true;
+            for (Quarto q : Hotel.quartos) {
+                if (q.getNumero() == numeroQuarto) quartoExiste = true;
             }
 
             if (quartoExiste) {
-
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 System.out.print("Digite a data de agendamento (dd/MM/yyyy): ");
                 Date data = sdf.parse(sc.next());
 
                 System.out.println("Limpeza do quarto " + numeroQuarto + " agendada para o dia " + data + ".");
             } else {
-                System.out.println("Quarto inexistente.");
+                System.out.println("Quarto desocupado.");
             }
 
         } catch (ParseException | InputMismatchException | IllegalArgumentException e) {
@@ -46,17 +45,16 @@ public class Camareira extends Funcionario {
         System.out.println();
 
         boolean quartoExiste = false; 
-        for (Hospede h : Hotel.hospedes) {
-            if (h.getReserva().getQuarto().getNumero() == numeroQuarto) {
-                System.out.println("Limpeza do quarto " + h.getReserva().getQuarto().getNumero() + " cancelada.");
+        for (Quarto q : Hotel.quartos) {
+            if (q.getNumero() == numeroQuarto) {
                 quartoExiste = true;
             }
         }
 
-        if(quartoExiste) {
+        if (quartoExiste) {
             System.out.println("Agendamento da limpeza do quarto " + numeroQuarto + " cancelado.");
         } else {
-            System.out.println("Quarto inexistente.");
+            System.out.println("Quarto desocupado.");
         }
     }
 }

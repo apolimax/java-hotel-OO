@@ -38,26 +38,28 @@ public class Recepcionista extends Funcionario {
             int opt = sc.nextInt();
 
             Hospede novoHospede = null;
+            Quarto quarto = null;
 
             switch (opt) {
                 case 1:
-                    QuartoSolteiro QuartoSolteiro = new QuartoSolteiro(newNumero, newAndar);
-                    novoHospede = new Hospede(nomeCliente,idadeCliente, checkIn, checkOut, QuartoSolteiro);
+                    quarto = new QuartoSolteiro(newNumero, newAndar);
+                    novoHospede = new Hospede(nomeCliente,idadeCliente, checkIn, checkOut, quarto);
                     break;
                 case 2:
-                    QuartoDuploSolteiro QuartoDuploSolteiro = new QuartoDuploSolteiro(newNumero, newAndar);
-                    novoHospede = new Hospede(nomeCliente,idadeCliente, checkIn, checkOut, QuartoDuploSolteiro);
+                    quarto = new QuartoDuploSolteiro(newNumero, newAndar);
+                    novoHospede = new Hospede(nomeCliente,idadeCliente, checkIn, checkOut, quarto);
                     break;
                 case 3:
-                    QuartoCasal QuartoCasal = new QuartoCasal(newNumero, newAndar);
-                    novoHospede = new Hospede(nomeCliente,idadeCliente, checkIn, checkOut, QuartoCasal);
+                    quarto = new QuartoCasal(newNumero, newAndar);
+                    novoHospede = new Hospede(nomeCliente,idadeCliente, checkIn, checkOut, quarto);
                     break;
                 default:
                     break;
-            }
-
-            if (novoHospede != null) {
+                }
+                
+            if (novoHospede != null && quarto != null) {
                 Hotel.hospedes.add(novoHospede);
+                Hotel.quartos.add(quarto);
                 System.out.printf("A reserva para %s foi concluída com sucesso!", nomeCliente);
             }
 
