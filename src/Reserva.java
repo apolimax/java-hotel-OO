@@ -20,9 +20,9 @@ public class Reserva {
         return checkOut;
     }
 
-
-    public String getQuarto() {
-        return quarto.toString();
+    public Quarto getQuarto() {
+        //return quarto.toString();
+        return quarto;
     }
 
     public long getDuracao() {

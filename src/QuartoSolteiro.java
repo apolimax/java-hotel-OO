@@ -24,8 +24,8 @@ public class QuartoSolteiro implements Quarto {
 
     @Override
     public String toString() {
-        return "Número do quarto: " + this.numero +
-                "\nAndar: " + this.andar + 
+        return "Número do quarto: " + this.getNumero() +
+                "\nAndar: " + this.getAndar() + 
                 "\nTipo do quarto: " + this.getTipoDeQuarto();
     }
 }

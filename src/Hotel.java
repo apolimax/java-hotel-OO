@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Hotel {
     static List<Funcionario> funcionarios = new ArrayList<>();
     static List<Hospede> hospedes = new ArrayList<>();
-    static List<Quarto> quartos = new ArrayList<>();
+    List<Quarto> quartos = new ArrayList<>();
 
     public String getDepartamento(Funcionario funcionario) {
         boolean isLimpeza =  funcionario instanceof Camareira;
@@ -100,7 +100,7 @@ public class Hotel {
             System.out.println("Hóspede não encontrado");
         } else {
             System.out.println(  "\nNome: " + h.getNome()
-                               + "\n" + h.getReserva().getQuarto()
+                               + "\n" + h.getReserva().getQuarto().toString()
                                + "\nData de check in: " + h.getReserva().getCheckIn()
                                + "\nData de check out: " + h.getReserva().getCheckOut()
                                + "\nDiárias: " + h.getReserva().getDuracao()

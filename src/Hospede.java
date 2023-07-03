@@ -17,11 +17,4 @@ public class Hospede extends Pessoa {
         }
 
     }
-
-    public void fazerReserva() {}
-
-    public void cancelarReserva() {
-        this.reserva = null;
-        Hotel.hospedes.remove(this);
-    }
 }

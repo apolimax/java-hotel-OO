@@ -19,11 +19,11 @@ public class Camareira extends Funcionario {
             System.out.println();
 
             boolean quartoExiste = false; 
-            for (Quarto q : Hotel.quartos) {
-                if ( q.getNumero() == numeroQuarto ) quartoExiste = true;
+            for (Hospede h : Hotel.hospedes) {
+                if (h.getReserva().getQuarto().getNumero() == numeroQuarto) quartoExiste = true;
             }
 
-            if(quartoExiste) {
+            if (quartoExiste) {
 
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 System.out.print("Digite a data de agendamento (dd/MM/yyyy): ");
@@ -46,9 +46,9 @@ public class Camareira extends Funcionario {
         System.out.println();
 
         boolean quartoExiste = false; 
-        for (Quarto q : Hotel.quartos) {
-            if ( q.getNumero() == numeroQuarto ) {
-                System.out.println("Limpeza do quarto " + q.getNumero() + " cancelada.");
+        for (Hospede h : Hotel.hospedes) {
+            if (h.getReserva().getQuarto().getNumero() == numeroQuarto) {
+                System.out.println("Limpeza do quarto " + h.getReserva().getQuarto().getNumero() + " cancelada.");
                 quartoExiste = true;
             }
         }
@@ -58,9 +58,5 @@ public class Camareira extends Funcionario {
         } else {
             System.out.println("Quarto inexistente.");
         }
-    }
-
-    public void limparQuarto(Quarto quarto) {
-        System.out.println("Limpando o quarto de número " + quarto.getNumero() + "do " + quarto.getAndar() + "o andar");
     }
 }
