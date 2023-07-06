@@ -26,7 +26,7 @@ public class Hotel {
     }
     
     public void imprimirFuncionarios() {
-        System.out.println("--- Relação de funcionários ---");
+        System.out.println("\n--- Relação de funcionários ---");
         if (funcionarios.isEmpty()) {
             System.out.println("A lista de funcionários está vazia!");
             return;
@@ -40,7 +40,7 @@ public class Hotel {
 
     public void imprimirFuncionario(Scanner sc) {
         if (funcionarios.isEmpty()) {
-            System.out.println(  "--- Detalhes de um funcionário ---"
+            System.out.println(  "\n--- Detalhes de um funcionário ---"
                                + "\nA lista de funcionários está vazia!");
             return;
         }
@@ -68,7 +68,7 @@ public class Hotel {
     }
 
     public void imprimirHospedes() {
-        System.out.println("--- Relação de hóspedes ---");
+        System.out.println("\n--- Relação de hóspedes ---");
         if (hospedes.isEmpty()) {
             System.out.println("A lista de hóspedes está vazia!");
             return;
@@ -82,7 +82,7 @@ public class Hotel {
 
     public void imprimirHospede(Scanner sc) {
         if (hospedes.isEmpty()) {
-            System.out.println(  "--- Detalhes de um hóspede ---" 
+            System.out.println(  "\n--- Detalhes de um hóspede ---" 
                                + "\nA lista de hóspedes está vazia!");
             return;
         }
@@ -112,7 +112,7 @@ public class Hotel {
         int opt = 1;
         do {
             try {
-                System.out.println(  "--- Recursos Humanos ---"
+                System.out.println(  "\n--- Recursos Humanos ---"
                                    + "\nDigite 1 para contratar um novo funcionário"
                                    + "\nDigite 2 demitir um funcionário"
                                    + "\nDigite 3 para sair");
@@ -142,7 +142,7 @@ public class Hotel {
     }
 
     public void demandarServicosRecepcao(Scanner sc) {  
-        System.out.println("--- Recepção ---");      
+        System.out.println("\n--- Recepção ---");      
         try {
             System.out.println(  "\nDigite 1 para fazer uma nova reserva"
                                + "\nDigite 2 para cancelar uma reserva"
@@ -168,7 +168,7 @@ public class Hotel {
     }
 
     public void demandarServicosLimpeza(Scanner sc) {  
-        System.out.println("--- Limpeza ---");      
+        System.out.println("\n--- Limpeza ---");      
         try {
             System.out.println(  "\nDigite 1 para solicitar limpeza"
                                + "\nDigite 2 para cancelar uma solicitação de limpeza"
@@ -196,7 +196,7 @@ public class Hotel {
     }
 
     public void demandarServicoRestaurante(Scanner sc) {
-        System.out.println("--- Restaurante ---");
+        System.out.println("\n--- Restaurante ---");
     	try {
     		System.out.println(  "--- CARDÁPIO ---"
     		                   + "\nDigite 1 para Feijoada"
